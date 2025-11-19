@@ -3,17 +3,19 @@
 [![Deepixel](https://img.shields.io/badge/Deepixel-Visit%20Website-blue?style=flat-square)](https://www.deepixel.xyz)
 [![Get License](https://img.shields.io/badge/Get%20License-Contact%20Us-yellow)](#license)
 
-`WristLandmarkTracker` is a real-time **wrist / hand-base landmark detection & tracking library** built on **OpenCV** and **DeepCore (Deepixel’s proprietary engine)**.
-It loads encrypted embedded models, supports **left and right hands**, and provides:
+WristLandmarkTracker is a high-performance wrist landmark detection and tracking library built on OpenCV and DeepCore, Deepixel’s proprietary inference engine.
+It loads encrypted embedded models and performs independent left- and right-wrist detection, automatically searching on the appropriate side of the image.
 
-* 21–27 wrist/hand base landmarks (depending on your model)
-* Wrist bounding box extraction
-* Per-landmark visibility score
-* Pose estimation (rotation vector → Euler angles)
-* Debug rendering utilities
-* Python bindings
+The system detects 32 cylindrical wrist landmarks per wrist, providing:
+- High-precision wrist landmark localization (32 points arranged in a cylindrical topology)
+- Left/right wrist auto-selection based on spatial location (left side → left wrist, right side → right wrist)
+- Per-landmark visibility confidence
+- Wrist pose estimation, returned in Euler angle format
+- Bounding region extraction for each wrist
+- Built-in visualization utilities for rendering cylinders, ROIs, and detected keypoints
+- Python bindings for easy integration
 
-The tracker outputs an array of **wrist keypoints**, selectable for **right** or **left** hand.
+The tracker outputs the full set of wrist landmarks and pose parameters for either the left wrist or right wrist, depending on detection results.
 
 Below is an example landmark indexing illustration (example only):
 
