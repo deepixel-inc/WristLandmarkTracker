@@ -144,7 +144,7 @@ def run():
         if not ret:
             break
 
-        wrist.run(frame, 0.5, False)
+        wrist.run(frame, 0.75, False)
 
         kp_right = wrist.get_keypoints(True)
         kp_left  = wrist.get_keypoints(False)
@@ -180,7 +180,7 @@ def run_imgs(img_list):
 
     for path in img_list:
         img = cv2.imread(path)
-        wrist.run(img, 0.5, True)
+        wrist.run(img, 0.75, True)
 
         print("Right Wrist Keypoints:", wrist.get_keypoints(True))
         print("Left Wrist Keypoints:", wrist.get_keypoints(False))
@@ -218,7 +218,7 @@ wrist.run(image, fThresh, isStill)
 | Parameter | Description                                      |
 | --------- | ------------------------------------------------ |
 | `image`   | BGR numpy array                                  |
-| `fThresh` | detection threshold (recommend `0.5`)            |
+| `fThresh` | detection threshold (recommend `0.75`)            |
 | `isStill` | whether image is static (improves stabilization) |
 
 Internally performs:
