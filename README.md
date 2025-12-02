@@ -6,8 +6,8 @@
 WristLandmarkTracker is a high-performance wrist landmark detection and tracking library built on OpenCV and DeepCore, Deepixel’s proprietary inference engine.
 It loads encrypted embedded models and performs independent left- and right-wrist detection, automatically searching on the appropriate side of the image.
 
-The system detects 32 cylindrical wrist landmarks per wrist, providing:
-- High-precision wrist landmark localization (32 points arranged in a cylindrical topology)
+The system detects 8 cylindrical wrist landmarks per wrist, providing:
+- High-precision wrist landmark localization (8 points arranged in a cylindrical topology)
 - Left/right wrist auto-selection based on spatial location (left side → left wrist, right side → right wrist)
 - Per-landmark visibility confidence
 - Wrist pose estimation, returned in Euler angle format
@@ -19,8 +19,8 @@ The tracker outputs the full set of wrist landmarks and pose parameters for eith
 
 Below is an example landmark indexing illustration (example only):
 
-> *(Insert your wrist landmark diagram here)*
-> *(E.g., index numbers correspond to positions returned by `get_keypoints(is_right=True)`)*
+<img width="1908" height="938" alt="image" src="https://github.com/user-attachments/assets/6b602d78-f92e-4a8c-a136-62ec3a1d4e45" />
+
 
 ---
 
@@ -28,10 +28,10 @@ Below is an example landmark indexing illustration (example only):
 
 * Real-time wrist landmark tracking
 * Supports **left & right hands independently**
-* Automatic ROI sliding window search
+* Automatic ROI sliding window search (initially)
 * Landmark visibility score
 * Wrist bounding box
-* Head-like pose estimation for wrist orientation
+* Pose estimation for wrist orientation
 * Stabilization logic for temporal smoothing
 * CPU-only — no GPU needed
 * Python API included
@@ -152,7 +152,7 @@ wrist = WristLandmarkTracker()
 success = wrist.init("dp_wrist_2025.lic")
 ```
 
-Loads embedded model from encrypted memory using the license key.
+Loads the embedded model from encrypted memory using the license key.
 
 ---
 
@@ -165,7 +165,7 @@ wrist.run(image, fThresh, isStill)
 | Parameter | Description                                      |
 | --------- | ------------------------------------------------ |
 | `image`   | BGR numpy array                                  |
-| `fThresh` | detection threshold (recommend `0.2`)            |
+| `fThresh` | detection threshold (recommend `0.5`)            |
 | `isStill` | whether image is static (improves stabilization) |
 
 Internally performs:
@@ -185,7 +185,7 @@ Internally performs:
 kps = wrist.get_keypoints(is_right=True)
 ```
 
-Returns `N × 2` float32 matrix:
+Returns `8 × 2` float32 matrix:
 `[[x, y], [x, y], ...]`
 
 ### **Visibility**
@@ -194,7 +194,7 @@ Returns `N × 2` float32 matrix:
 vis = wrist.get_visibility(is_right=True)
 ```
 
-Returns `1 × N` float32 vector.
+Returns `1 × 8` float32 vector.
 
 ### **Bounding Box**
 
