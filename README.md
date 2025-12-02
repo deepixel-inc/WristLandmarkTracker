@@ -11,8 +11,13 @@ The system detects 8 cylindrical wrist landmarks per wrist and provides:
 * Left/right wrist detection with per-landmark visibility confidence
 * Wrist pose estimation in Euler angles (pitch, yaw, roll)
 
+Below is an example of landmark detection result. The 3D cylinder structure along with the orientation and pose of the corresponding wrist is printed on the bounding rect's top left corner.
 
-#### Features ####
+<img width="680" height="455" alt="image" src="https://github.com/user-attachments/assets/ba563e02-e550-41f1-a319-665cec9b6832" />
+
+---
+
+### Features ###
 
 * Real-time wrist landmark tracking
 * Independent support for left and right wrists
@@ -23,11 +28,6 @@ The system detects 8 cylindrical wrist landmarks per wrist and provides:
 * CPU-only operation (no GPU required)
 * Built-in visualization utilities
 * Python API (supports Python 3.9–3.12)
-
-
-Below is an example of landmark detection result. The 3D cylinder structure along with the orientation and pose of the corresponding wrist is printed on the bounding rect's top left corner.
-
-<img width="680" height="455" alt="image" src="https://github.com/user-attachments/assets/ba563e02-e550-41f1-a319-665cec9b6832" />
 
 ---
 
