@@ -19,7 +19,13 @@ The tracker outputs the full set of wrist landmarks and pose parameters for eith
 
 Below is an example landmark indexing illustration (example only):
 
-<img width="1908" height="938" alt="image" src="https://github.com/user-attachments/assets/6b602d78-f92e-4a8c-a136-62ec3a1d4e45" />
+<img width="872" height="570" alt="image" src="https://github.com/user-attachments/assets/2130cefd-31a9-4c76-9433-7877eadde865" />
+
+
+
+Below is the 3D cylindrical structure fitted to the user’s wrist, with the keypoint indices labeled next to each point. Note that the left-side and right-side cylinder keypoints are mirrored across the x-axis.
+
+<img width="644" height="278" alt="image" src="https://github.com/user-attachments/assets/1ba38756-4f65-4a73-88ef-de3a3e998b6c" />
 
 
 ---
@@ -91,7 +97,7 @@ def run():
         if not ret:
             break
 
-        wrist.run(frame, 0.2, False)
+        wrist.run(frame, 0.5, False)
 
         kp_right = wrist.get_keypoints(True)
         kp_left  = wrist.get_keypoints(False)
@@ -127,7 +133,7 @@ def run_imgs(img_list):
 
     for path in img_list:
         img = cv2.imread(path)
-        wrist.run(img, 0.2, True)
+        wrist.run(img, 0.5, True)
 
         print("Right Wrist Keypoints:", wrist.get_keypoints(True))
         print("Left Wrist Keypoints:", wrist.get_keypoints(False))
