@@ -3,25 +3,33 @@
 [![Deepixel](https://img.shields.io/badge/Deepixel-Visit%20Website-blue?style=flat-square)](https://www.deepixel.xyz)
 [![Get License](https://img.shields.io/badge/Get%20License-Contact%20Us-yellow)](#license)
 
-WristLandmarkTracker is a high-performance wrist landmark detection and tracking library built on OpenCV and DeepCore, Deepixel’s proprietary inference engine.
-It loads encrypted embedded models and performs independent left- and right-wrist detection, automatically searching on the appropriate side of the image.
+WristLandmarkTracker is a high-performance wrist landmark detection and tracking library built on OpenCV and DeepCore, Deepixel’s proprietary inference engine. It loads encrypted embedded models and performs independent detection for left and right wrists, automatically searching the correct side of the image during initialization.
 
-The system detects 8 cylindrical wrist landmarks per wrist, providing:
-- High-precision wrist landmark localization (8 points arranged in a cylindrical topology)
-- Left/right wrist detection
-- Per-landmark visibility confidence
-- Wrist pose estimation, returned in Euler angle format (pitch,yaw,roll)
-- Bounding region extraction for each wrist
-- Built-in visualization utilities for rendering cylinders, ROIs, and detected keypoints
-- Python bindings for easy integration
+The system detects 8 cylindrical wrist landmarks per wrist and provides:
 
-The tracker outputs the full set of wrist landmarks and pose parameters for either the left wrist or right wrist, depending on detection results.
-The model can detect both left and right wrists, but during initialization it assumes the left wrist appears on the left side and the right wrist on the right side. After this initial assignment, it switches to tracking mode.
- 
+* High-precision 3D landmark localization (cylindrical topology)
+* Left/right wrist detection with per-landmark visibility confidence
+* Wrist pose estimation in Euler angles (pitch, yaw, roll)
+
+
+#### Features ####
+
+* Real-time wrist landmark tracking
+* Independent support for left and right wrists
+* Automatic ROI sliding window search (initial assignment only)
+* Landmark visibility scores
+* Wrist bounding boxes and pose estimation
+* Temporal smoothing for stabilized tracking
+* CPU-only operation (no GPU required)
+* Built-in visualization utilities
+* Python API (supports Python 3.9–3.12)
+
+
 Below is an example of landmark detection result. The 3D cylinder structure along with the orientation and pose of the corresponding wrist is printed on the bounding rect's top left corner.
 
 <img width="680" height="455" alt="image" src="https://github.com/user-attachments/assets/ba563e02-e550-41f1-a319-665cec9b6832" />
 
+---
 
 ### 📌 3D Cylindrical Keypoint Coordinates
 
@@ -78,20 +86,7 @@ Below is the 3D cylindrical structure fitted to the user’s wrist, with the key
 
 ---
 
-## **Features**
 
-* Real-time wrist landmark tracking
-* Supports **left & right hands independently**
-* Automatic ROI sliding window search (initially)
-* Landmark visibility score
-* Wrist bounding box
-* Pose estimation for wrist orientation
-* Stabilization logic for temporal smoothing
-* CPU-only — no GPU needed
-* Python API included
-* Supports Python 3.9–3.12
-
----
 
 ## **Installation**
 
