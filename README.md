@@ -8,14 +8,15 @@ It loads encrypted embedded models and performs independent left- and right-wris
 
 The system detects 8 cylindrical wrist landmarks per wrist, providing:
 - High-precision wrist landmark localization (8 points arranged in a cylindrical topology)
-- Left/right wrist auto-selection based on spatial location (left side → left wrist, right side → right wrist)
+- Left/right wrist detection
 - Per-landmark visibility confidence
-- Wrist pose estimation, returned in Euler angle format
+- Wrist pose estimation, returned in Euler angle format (pitch,yaw,roll)
 - Bounding region extraction for each wrist
 - Built-in visualization utilities for rendering cylinders, ROIs, and detected keypoints
 - Python bindings for easy integration
 
 The tracker outputs the full set of wrist landmarks and pose parameters for either the left wrist or right wrist, depending on detection results.
+The model can detect both left and right wrists, but during initialization it assumes the left wrist appears on the left side and the right wrist on the right side. After this initial assignment, it switches to tracking mode.
  
 Below is an example of landmark detection result. The 3D cylinder structure along with the orientation and pose of the corresponding wrist is printed on the bounding rect's top left corner.
 
@@ -112,8 +113,8 @@ pip install deeppy-wrist-2.19.459-cp311-cp311-win_amd64.whl
 
 | Environment                      | Resolution | FPS  |
 | -------------------------------- | ---------- | ---- |
-| Notebook CPU (Intel i7 11th Gen) | 640×480    | ~300 |
-| Desktop CPU (Intel i7 11th Gen)  | 640×480    | ~420 |
+| Notebook CPU (Intel i7 11th Gen) | 640×480    | ~200 |
+| Desktop CPU (Intel i7 11th Gen)  | 640×480    | ~280 |
 
 Performance may vary depending on:
 ✔ input resolution
@@ -137,7 +138,7 @@ def run():
     wrist = WristLandmarkTracker()
     wrist.init(license_path)
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0,cv2.CAP_DSHOW) # use DSHOW for windows
 
     while True:
         ret, frame = cap.read()
