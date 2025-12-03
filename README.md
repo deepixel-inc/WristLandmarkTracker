@@ -90,7 +90,7 @@ pip install deeppy-wrist-2.19.459-cp311-cp311-win_amd64.whl
 
 | Environment                      | Resolution | FPS  |
 | -------------------------------- | ---------- | ---- |
-| Notebook CPU (Intel i7 11th Gen) | 640×480    | ~200 |
+| Notebook CPU (Intel i7 11th Gen) | 640×480    | ~190 |
 | Desktop CPU (Intel i7 11th Gen)  | 640×480    | ~280 |
 
 Performance may vary depending on:
