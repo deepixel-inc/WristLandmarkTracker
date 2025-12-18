@@ -1,6 +1,7 @@
 # **WristLandmarkTracker**
 
 [![Deepixel](https://img.shields.io/badge/Deepixel-Visit%20Website-blue?style=flat-square)](https://www.deepixel.xyz)
+[![StyleAR](https://img.shields.io/badge/StyleAR-Visit%20Website-pink?style=flat-square)](https://www.stylear.ai)
 [![Get License](https://img.shields.io/badge/Get%20License-Contact%20Us-yellow)](#license)
 
 WristLandmarkTracker is a high-performance wrist landmark detection and tracking library built on OpenCV and DeepCore, Deepixel’s proprietary inference engine. It loads encrypted embedded models and performs independent detection for left and right wrists, automatically searching the correct side of the image during initialization.
